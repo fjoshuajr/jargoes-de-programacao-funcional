@@ -1,4 +1,4 @@
-# Jargão de Programação Funcional
+# Jargões de Programação Funcional
 
 Esta é uma tradução em Português (pt-PT) de [Functional Programming Jargon](https://github.com/hemanth/functional-programming-jargon).
 
