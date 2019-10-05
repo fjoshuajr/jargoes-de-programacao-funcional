@@ -1,4 +1,6 @@
-# Functional Programming Jargon
+# Jargão de Programação Funcional
+
+Esta é uma tradução em Português (pt-PT) de [Functional Programming Jargon](https://github.com/hemanth/functional-programming-jargon).
 
 Functional programming (FP) provides many advantages, and its popularity has been increasing as a result. However, each programming paradigm comes with its own unique jargon and FP is no exception. By providing a glossary, we hope to make learning FP easier.
 
@@ -8,7 +10,6 @@ Where applicable, this document uses terms defined in the [Fantasy Land spec](ht
 
 __Table of Contents__
 <!-- RM(noparent,notop) -->
-
 * [Arity](#arity)
 * [Higher-Order Functions (HOF)](#higher-order-functions-hof)
 * [Closure](#closure)
@@ -59,8 +60,6 @@ __Table of Contents__
 * [Function](#function)
 * [Partial function](#partial-function)
 * [Functional Programming Libraries in JavaScript](#functional-programming-libraries-in-javascript)
-
-
 <!-- /RM -->
 
 ## Arity
@@ -1072,5 +1071,3 @@ Making your partial functions total ones, these kinds of runtime errors can be p
 * [fp-ts](https://github.com/gcanti/fp-ts)
 
 ---
-
-__P.S:__ This repo is successful due to the wonderful [contributions](https://github.com/hemanth/functional-programming-jargon/graphs/contributors)!
