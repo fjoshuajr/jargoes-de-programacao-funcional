@@ -21,7 +21,7 @@ __Tabela de Conteúdos__
 * [Puridade](#puridade)
 * [Efeitos Secundários](#efeitos-secundários)
 * [Idempotência](#idempotência)
-* [Point-Free Style](#point-free-style)
+* [Estilo Livre de Apontamento](#estilo-livre-de-apontamento)
 * [Predicate](#predicate)
 * [Contracts](#contracts)
 * [Category](#category)
@@ -295,27 +295,27 @@ Math.abs(Math.abs(10))
 sort(sort(sort([2, 1])))
 ```
 
-## Point-Free Style
+## Estilo Livre de Apontamento
 
-Writing functions where the definition does not explicitly identify the arguments used. This style usually requires [currying](#currying) or other [Higher-Order functions](#higher-order-functions-hof). A.K.A Tacit programming.
+Escrever funções onde a definição não identifica explicitamente os argumentos usados. Este estilo normalmente requer [currying](#currying) ou [funções de Ordem-Superior (FOS)](#funções-de-ordem-superior-fos). Mais conhecido por programação tácita.
 
 ```js
-// Given
+// Dado
 const map = (fn) => (list) => list.map(fn)
 const add = (a) => (b) => a + b
 
-// Then
+// Então
 
-// Not points-free - `numbers` is an explicit argument
+// Não é livre de apontamento - `numbers` é um argumento explícito
 const incrementAll = (numbers) => map(add(1))(numbers)
 
-// Points-free - The list is an implicit argument
+// Livre de apontamento - Esta lista é um argumento implícito
 const incrementAll2 = map(add(1))
 ```
 
-`incrementAll` identifies and uses the parameter `numbers`, so it is not points-free.  `incrementAll2` is written just by combining functions and values, making no mention of its arguments.  It __is__ points-free.
+`incrementAll` identifica e utiliza o parâmetro `numbers`, então não é livre de apontamento. `incrementAll2` é escrita apenas pela combinaçao de funções e valores, sem fazer menção dos seus argumentos. __É__ livre de apontamento.
 
-Points-free function definitions look just like normal assignments without `function` or `=>`.
+Definições de funções livre de apontamento parecem-se com atribuições normais sem `function` ou `=>`.
 
 ## Predicate
 
