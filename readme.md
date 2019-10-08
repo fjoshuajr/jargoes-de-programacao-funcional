@@ -19,7 +19,7 @@ __Tabela de Conteúdos__
 * [Composição de Funções](#composição-de-funções)
 * [Continuação](#continuação)
 * [Puridade](#puridade)
-* [Side effects](#side-effects)
+* [Efeitos Secundários](#efeitos-secundários)
 * [Idempotent](#idempotent)
 * [Point-Free Style](#point-free-style)
 * [Predicate](#predicate)
@@ -267,16 +267,16 @@ greeting // "Olá, Brianne"
 
 ... e este modifica o estado fora da função.
 
-## Side effects
+## Efeitos Secundários
 
-A function or expression is said to have a side effect if apart from returning a value, it interacts with (reads from or writes to) external mutable state.
+Diz-se que uma função ou expressão tem efeitos secundários se além de retornar um valor, ela interage (lê ou escreve) com um estado mutável externo.
 
 ```js
 const differentEveryTime = new Date()
 ```
 
 ```js
-console.log('IO is a side effect!')
+console.log('IO é um efeito secundário!')
 ```
 
 ## Idempotent
