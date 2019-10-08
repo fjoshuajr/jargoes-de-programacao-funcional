@@ -13,7 +13,7 @@ __Tabela de Conteúdos__
 * [Aridade](#aridade)
 * [Funções de Ordem-Superior (FOS)](#funções-de-ordem-superior-fos)
 * [Closure](#closure)
-* [Partial Application](#partial-application)
+* [Aplicação Parcial](#aplicação-parcial)
 * [Currying](#currying)
 * [Auto Currying](#auto-currying)
 * [Function Composition](#function-composition)
@@ -69,8 +69,8 @@ O número de argumentos que uma função leva. De palavras como unário/a, biná
 ```js
 const sum = (a, b) => a + b
 
-const aridade = sum.length
-console.log(aridade) // 2
+const arity = sum.length
+console.log(arity) // 2
 
 // A aridade de sum é 2
 ```
@@ -121,37 +121,35 @@ __Leitura adicional/Fontes__
 * [Lambda Vs Closure](http://stackoverflow.com/questions/220658/what-is-the-difference-between-a-closure-and-a-lambda)
 * [JavaScript Closures highly voted discussion](http://stackoverflow.com/questions/111102/how-do-javascript-closures-work)
 
-## Partial Application
+## Aplicação Parcial
 
-Partially applying a function means creating a new function by pre-filling some of the arguments to the original function.
-
+Aplicar parcialmente uma função é criar uma nova função através do pré-preenchimento de alguns dos seus argumentos até a função original.
 
 ```js
-// Helper to create partially applied functions
-// Takes a function and some arguments
+// Auxiliar para criar funções aplicadas parcialmente
+// Leva uma função e alguns argumentos
 const partial = (f, ...args) =>
-  // returns a function that takes the rest of the arguments
+  // retorna a função que leva os argumentos restantes
   (...moreArgs) =>
-    // and calls the original function with all of them
+    // e invoca a função original com todos eles
     f(...args, ...moreArgs)
 
-// Something to apply
+// Algo para aplicar
 const add3 = (a, b, c) => a + b + c
 
-// Partially applying `2` and `3` to `add3` gives you a one-argument function
+// Aplicar parcialmente `2` e `3` para `add3` dá-nos uma função com um argumento
 const fivePlus = partial(add3, 2, 3) // (c) => 2 + 3 + c
 
 fivePlus(4) // 9
 ```
 
-You can also use `Function.prototype.bind` to partially apply a function in JS:
+Podemos também usar `Function.prototype.bind` para aplicar parcialmente uma função em JS:
 
 ```js
 const add1More = add3.bind(null, 2, 3) // (c) => 2 + 3 + c
 ```
 
-Partial application helps create simpler functions from more complex ones by baking in data when you have it. [Curried](#currying) functions are automatically partially applied.
-
+A aplicação parcial ajuda-nos a criar funções mais simples a partir de funções mais complexas pela entrega dos dados quando estiverem disponíveis. Funções [curry](#currying) são automaticamente aplicadas parcialmente.
 
 ## Currying
 
