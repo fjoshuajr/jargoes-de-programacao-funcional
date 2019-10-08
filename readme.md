@@ -39,15 +39,15 @@ __Tabela de Conteúdos__
 * [Monad](#monad)
 * [Comonad](#comonad)
 * [Functor Aplicável](#functor-aplicável)
-* [Morphism](#morphism)
-  * [Endomorphism](#endomorphism)
-  * [Isomorphism](#isomorphism)
-  * [Homomorphism](#homomorphism)
-  * [Catamorphism](#catamorphism)
-  * [Anamorphism](#anamorphism)
-  * [Hylomorphism](#hylomorphism)
-  * [Paramorphism](#paramorphism)
-  * [Apomorphism](#apomorphism)
+* [Morfismo](#morfismo)
+  * [Endomorfismo](#endomorfismo)
+  * [Isomorfismo](#isomorfismo)
+  * [Homomorfismo](#homomorfismo)
+  * [Catamorfismo](#catamorfismo)
+  * [Anamorfismo](#anamorfismo)
+  * [Hylomorfismo](#hylomorfismo)
+  * [Paramorfismo](#paramorfismo)
+  * [Apomorfismo](#apomorfismo)
 * [Setoid](#setoid)
 * [Semigroup](#semigroup)
 * [Foldable](#foldable)
@@ -660,11 +660,11 @@ This gives you an array of functions that you can call `ap` on to get the result
 partiallyAppliedAdds.ap(arg2) // [5, 6, 7, 8]
 ```
 
-## Morphism
+## Morfismo
 
 A transformation function.
 
-### Endomorphism
+### Endomorfismo
 
 A function where the input type is the same as the output.
 
@@ -676,7 +676,7 @@ const uppercase = (str) => str.toUpperCase()
 const decrement = (x) => x - 1
 ```
 
-### Isomorphism
+### Isomorfismo
 
 A pair of transformations between 2 types of objects that is structural in nature and no data is lost.
 
@@ -693,9 +693,9 @@ coordsToPair(pairToCoords([1, 2])) // [1, 2]
 pairToCoords(coordsToPair({x: 1, y: 2})) // {x: 1, y: 2}
 ```
 
-### Homomorphism
+### Homomorfismo
 
-A homomorphism is just a structure preserving map. In fact, a functor is just a homomorphism between categories as it preserves the original category's structure under the mapping.
+A homomorfismo is just a structure preserving map. In fact, a functor is just a homomorfismo between categories as it preserves the original category's structure under the mapping.
 
 ```js
 A.of(f).ap(A.of(x)) == A.of(f(x))
@@ -703,7 +703,7 @@ A.of(f).ap(A.of(x)) == A.of(f(x))
 Either.of(_.toUpper).ap(Either.of("oreos")) == Either.of(_.toUpper("oreos"))
 ```
 
-### Catamorphism
+### Catamorfismo
 
 A `reduceRight` function that applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
 
@@ -713,7 +713,7 @@ const sum = xs => xs.reduceRight((acc, x) => acc + x, 0)
 sum([1, 2, 3, 4, 5]) // 15
 ```
 
-### Anamorphism
+### Anamorfismo
 
 An `unfold` function. An `unfold` is the opposite of `fold` (`reduce`). It generates a list from a single value.
 
@@ -735,15 +735,15 @@ const countDown = n => unfold((n) => {
 countDown(5) // [5, 4, 3, 2, 1]
 ```
 
-### Hylomorphism
+### Hylomorfismo
 
-The combination of anamorphism and catamorphism.
+The combination of anamorfismo and catamorfismo.
 
-### Paramorphism
+### Paramorfismo
 
 A function just like `reduceRight`. However, there's a difference:
 
-In paramorphism, your reducer's arguments are the current value, the reduction of all previous values, and the list of values that formed that reduction.
+In paramorfismo, your reducer's arguments are the current value, the reduction of all previous values, and the list of values that formed that reduction.
 
 ```js
 // Obviously not safe for lists containing `undefined`,
@@ -769,9 +769,9 @@ suffixes([1, 2, 3, 4, 5]) // [[2, 3, 4, 5], [3, 4, 5], [4, 5], [5], []]
 
 The third parameter in the reducer (in the above example, `[x, ... xs]`) is kind of like having a history of what got you to your current acc value.
 
-### Apomorphism
+### Apomorfismo
 
-it's the opposite of paramorphism, just as anamorphism is the opposite of catamorphism. Whereas with paramorphism, you combine with access to the accumulator and what has been accumulated, apomorphism lets you `unfold` with the potential to return early.
+it's the opposite of paramorfismo, just as anamorfismo is the opposite of catamorfismo. Whereas with paramorfismo, you combine with access to the accumulator and what has been accumulated, apomorfismo lets you `unfold` with the potential to return early.
 
 ## Setoid
 
