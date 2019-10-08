@@ -2,7 +2,7 @@
 
 Esta é uma tradução em Português (pt-PT) de [Functional Programming Jargon](https://github.com/hemanth/functional-programming-jargon).
 
-A programação funcional (PF) tem várias vantagens, por isso a sua popularidade tem aumentado. No entanto, cada paradigma de programação vem com o seu próprio jargão e a PF não é exceção. Ao dar este glossário, esperamos que torne o aprendizado da PF mais fácil.
+A programação funcional (PF) tem várias vantagens, por isso a sua popularidade tem aumentado. No entanto, cada paradigma de programação vem com o seu próprio jargão e a PF não é exceção. Ao dar este glossário, esperamos tornar o aprendizado da PF mais fácil.
 
 Os exemplos são apresentados em JavaScript (versão ES2015). [Why JavaScript? (em inglês)](https://github.com/hemanth/functional-programming-jargon/wiki/Why-JavaScript%3F)
 
@@ -64,7 +64,7 @@ __Tabela de Conteúdos__
 
 ## Aridade
 
-O número de argumentos que uma função leva. De palavras como unário/a, binário/a, ternário/a, etc. Estas palavras distinguem-se por serem compostas pelo sufixo, "-ário/a". A adição, por exemplo, leva dois argumentos, e por esta razão é definida com uma função binária com uma aridade de dois. Tal função pode também ser chamada de "diádica" por pessoas que preferem origens Gregas em vez de Latinas. Da mesma forma, uma função que toma um número variado de argumentos é chamada de "variádica", enquanto que uma função binária deve ser dada dois e somente dois argumentos, mesmo que se faça currying e aplicação parcial (veja abaixo).
+O número de argumentos que uma função leva. De palavras como unário/a, binário/a, ternário/a, etc. Estas palavras distinguem-se por serem compostas pelo sufixo, "-ário/a". A adição, por exemplo, leva dois argumentos, e por essa razão é definida com uma função binária com uma aridade de dois. Tal função pode também ser chamada de "diádica" por pessoas que preferem origens Gregas em vez de Latinas. Da mesma forma, uma função que toma um número variado de argumentos é chamada de "variádica", enquanto que uma função binária deve ser dada dois e somente dois argumentos, mesmo que se faça currying e aplicação parcial (veja abaixo).
 
 ```js
 const soma = (a, b) => a + b
