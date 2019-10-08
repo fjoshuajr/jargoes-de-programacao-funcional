@@ -22,19 +22,19 @@ __Tabela de Conteúdos__
 * [Efeitos Secundários](#efeitos-secundários)
 * [Idempotência](#idempotência)
 * [Estilo Livre de Apontamento](#estilo-livre-de-apontamento)
-* [Predicate](#predicate)
-* [Contracts](#contracts)
-* [Category](#category)
-* [Value](#value)
-* [Constant](#constant)
+* [Predicado](#predicado)
+* [Contratos](#contratos)
+* [Categoria](#categoria)
+* [Valor](#valor)
+* [Constante](#constante)
 * [Functor](#functor)
-* [Pointed Functor](#pointed-functor)
+* [Functor Apontado](#pointed-functor)
 * [Lift](#lift)
-* [Referential Transparency](#referential-transparency)
-* [Equational Reasoning](#equational-reasoning)
+* [Transparência Referencial](#transparência-referencial)
+* [Raciocínio Equacional](#raciocínio-equacional)
 * [Lambda](#lambda)
-* [Lambda Calculus](#lambda-calculus)
-* [Lazy evaluation](#lazy-evaluation)
+* [Cálculo Lambda](#cálculo-lambda)
+* [Avaliação Preguiçosa](#avaliação-preguiçosa)
 * [Monoid](#monoid)
 * [Monad](#monad)
 * [Comonad](#comonad)
@@ -317,9 +317,9 @@ const incrementAll2 = map(add(1))
 
 Definições de funções livre de apontamento parecem-se com atribuições normais sem `function` ou `=>`.
 
-## Predicate
+## Predicado
 
-A predicate is a function that returns true or false for a given value. A common use of a predicate is as the callback for array filter.
+Um predicado é uma função que retorna verdadeiro ou falso para um dado valor. Um uso comum de um predicado é como o _callback_ para um filtro de array.
 
 ```js
 const predicate = (a) => a > 2
@@ -327,70 +327,71 @@ const predicate = (a) => a > 2
 ;[1, 2, 3, 4].filter(predicate) // [3, 4]
 ```
 
-## Contracts
+## Contratos
 
-A contract specifies the obligations and guarantees of the behavior from a function or expression at runtime. This acts as a set of rules that are expected from the input and output of a function or expression, and errors are generally reported whenever a contract is violated.
+Um contrato especifica as obrigações e garantias do comportamento de uma função ou expressão durante a execução. Isso age como um conjunto de regras que são esperadas na entrada e saída de uma função ou expressão, e o erros são geralmente relatados sempre que um contrato é violado.
 
 ```js
-// Define our contract : int -> boolean
+// Define o nosso contrato : int -> boolean
 const contract = (input) => {
   if (typeof input === 'number') return true
-  throw new Error('Contract violated: expected int -> boolean')
+  throw new Error('Contrato violado: esperado int -> boolean')
 }
 
 const addOne = (num) => contract(num) && num + 1
 
 addOne(2) // 3
-addOne('some string') // Contract violated: expected int -> boolean
+addOne('uma string') // Contrato violado: esperado int -> boolean
 ```
 
-## Category
+## Categoria
 
-A category in category theory is a collection of objects and morphisms between them. In programming, typically types
-act as the objects and functions as morphisms.
+Uma categoria em teoria de categorias é um conjunto de objetos e morfismos entre eles. Em programaçào, geralmente os tipos agem como objetos e funções como morfismos.
 
-To be a valid category 3 rules must be met:
+Para que uma categoria seja válida, 3 regras devem ser cumpridas:
 
-1. There must be an identity morphism that maps an object to itself.
-    Where `a` is an object in some category,
-    there must be a function from `a -> a`.
-2. Morphisms must compose.
-    Where `a`, `b`, and `c` are objects in some category,
-    and `f` is a morphism from `a -> b`, and `g` is a morphism from `b -> c`;
-    `g(f(x))` must be equivalent to `(g • f)(x)`.
-3. Composition must be associative
-    `f • (g • h)` is the same as `(f • g) • h`
+1. Deve existir um morfismo identidade que mapeia um objeto para si próprio.
 
-Since these rules govern composition at very abstract level, category theory is great at uncovering new ways of composing things.
+    Onde `a` é um objeto em alguma categoria, deve existir uma função de `a -> a`.
 
-__Further reading__
+2. Morfismos devem compor.
+
+    Onde `a`, `b` e `c` são objetos em alguma categoria, e `f` é um morfismo de `a -> b` e `g` é um morfismo de `b -> c`; `g(f(x))` deve ser equivalente à `(g • f)(x)`.
+
+3. Composição deve ser associativa.
+
+    `f • (g • h)` é o mesmo que `(f • g) • h`.
+
+Já que essas regras governam a composiçao num nível abstrato, a teoria de categorias é fantástica na descoberta de novas formas de compor coisas.
+
+__Leitura adicional__
 
 * [Category Theory for Programmers](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/)
 
-## Value
+## Valor
 
-Anything that can be assigned to a variable.
+Qualquer coisa que pode ser atribuída à uma variável.
 
 ```js
 5
-Object.freeze({name: 'John', age: 30}) // The `freeze` function enforces immutability.
+Object.freeze({name: 'John', age: 30}) // A função `freeze` força a imutabilidade.
 ;(a) => a
 ;[1]
 undefined
 ```
 
-## Constant
+## Constante
 
-A variable that cannot be reassigned once defined.
+Um variável que não pode ser reatribuída uma vez definida.
 
 ```js
 const five = 5
 const john = Object.freeze({name: 'John', age: 30})
 ```
 
-Constants are [referentially transparent](#referential-transparency). That is, they can be replaced with the values that they represent without affecting the result.
+Constantes são [transparentes referencialmente](#transparência-referencial). Isto é, podem ser substituídos pelos valores que representam sem afetar o resultado.
 
-With the above two constants the following expression will always return `true`.
+Com as duas constantes acima, a seguinte expressão sempre vai retornar `true`.
 
 ```js
 john.age + five === ({name: 'John', age: 30}).age + (5)
