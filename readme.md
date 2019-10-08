@@ -16,7 +16,7 @@ __Tabela de Conteúdos__
 * [Aplicação Parcial](#aplicação-parcial)
 * [Currying](#currying)
 * [Currying Automático](#currying-automático)
-* [Function Composition](#function-composition)
+* [Composição de Funções](#composição-de-funções)
 * [Continuation](#continuation)
 * [Purity](#purity)
 * [Side effects](#side-effects)
@@ -191,13 +191,13 @@ __Further reading__
 * [Favoring Curry](http://fr.umio.us/favoring-curry/)
 * [Hey Underscore, You're Doing It Wrong!](https://www.youtube.com/watch?v=m3svKOdZijA)
 
-## Function Composition
+## Composição de Funções
 
-The act of putting two functions together to form a third function where the output of one function is the input of the other.
+O acto de juntar duas funções para formar uma terceira função, onde a saída de uma função é a entrada de outra.
 
 ```js
-const compose = (f, g) => (a) => f(g(a)) // Definition
-const floorAndToString = compose((val) => val.toString(), Math.floor) // Usage
+const compose = (f, g) => (a) => f(g(a)) // Definição
+const floorAndToString = compose((val) => val.toString(), Math.floor) // Uso
 floorAndToString(121.212121) // '121'
 ```
 
