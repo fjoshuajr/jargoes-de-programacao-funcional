@@ -93,31 +93,31 @@ filter(is(Number), [0, '1', 2, null]) // [0, 2]
 
 ## Closure
 
-A closure is a way of accessing a variable outside its scope.
-Formally, a closure is a technique for implementing lexically scoped named binding. It is a way of storing a function with an environment.
+Um closure é uma maneira de acessar uma variável fora do seu escopo.
+Formalmente, um closure é uma técnica para implementar um vínculo nomeado com escopo lexicamente.
+É uma forma de guardar uma função com o seu ambiente.
 
-A closure is a scope which captures local variables of a function for access even after the execution has moved out of the block in which it is defined.
-ie. they allow referencing a scope after the block in which the variables were declared has finished executing.
-
+Um closure é um escopo que captura variáveis locais de uma função para que possam ser acessadas até mesmo se a execução for feita fora do bloco no qual este foi definido. Exemplo: permite que se faça referência ao escopo depois que o bloco no qual as variáveis foram declaradas tenha terminado de executar.
 
 ```js
 const addTo = x => y => x + y;
 var addToFive = addTo(5);
-addToFive(3); //returns 8
+addToFive(3); //retorna 8
 ```
-The function ```addTo()``` returns a function(internally called ```add()```), lets store it in a variable called ```addToFive``` with a curried call having parameter 5.
 
-Ideally, when the function ```addTo``` finishes execution, its scope, with local variables add, x, y should not be accessible. But, it returns 8 on calling ```addToFive()```. This means that the state of the function ```addTo``` is saved even after the block of code has finished executing, otherwise there is no way of knowing that ```addTo``` was called as ```addTo(5)``` and the value of x was set to 5.
+A função ```addTo()``` retorna uma função (internamente chamada ```add()```), vamos guardá-la numa variável chamada ```addToFive``` com uma invocação com currying com argumento _5_.
 
-Lexical scoping is the reason why it is able to find the values of x and add - the private variables of the parent which has finished executing. This value is called a Closure.
+Normalmente, quando a função ```addTo``` termina de executar, o seu escopo, com variáveis locais _add_, _x_, _y_ não pode ser acessado. Mas, a função retorna _8_ quando se invoca ```addToFive()```. Isto quer dizer que o estado da função ```addTo``` continua guardado mesmo depois que o bloco de código tenha terminado de executar, caso contrário não haveria forma de saber que ```addTo```  foi invocada como ```addTo(5)``` e o valor de _x_ foi definido para _5_.
 
-The stack along with the lexical scope of the function is stored in form of reference to the parent. This prevents the closure and the underlying variables from being garbage collected(since there is at least one live reference to it).
+Escopo léxico é a razão pela qual a função é capaz de encontrar os valores de _x_ e de _add_ - as variáveis privadas to pai que terminou de executar. Este valor é chamado de Closure.
 
-Lambda Vs Closure: A lambda is essentially a function that is defined inline rather than the standard method of declaring functions. Lambdas can frequently be passed around as objects.
+A pilha juntamente com o escopo léxico da função é guardada na forma de referência para o pai. Isso previne que o closure e respetivas variáveis sejam coletadas durante o _garbage collection_ (já que existe pelo menos uma referência ativa para o pai).
 
-A closure is a function that encloses its surrounding state by referencing fields external to its body. The enclosed state remains across invocations of the closure.
+Lamda Vs Closure: Um lambda é basicamente uma função que é definida em linha em vez do metódo normal de declaração de funções. Lambdas podem frequentemente ser passados entre funções tal como objetos.
 
-__Further reading/Sources__
+Um closure é uma função que envolve o seu estado através da referência de campos fora do seu escopo. O estado envolvido continua a existir durante invocações do closure.
+
+__Leitura adicional/Fontes__
 * [Lambda Vs Closure](http://stackoverflow.com/questions/220658/what-is-the-difference-between-a-closure-and-a-lambda)
 * [JavaScript Closures highly voted discussion](http://stackoverflow.com/questions/111102/how-do-javascript-closures-work)
 
