@@ -17,7 +17,7 @@ __Tabela de Conteúdos__
 * [Currying](#currying)
 * [Currying Automático](#currying-automático)
 * [Composição de Funções](#composição-de-funções)
-* [Continuation](#continuation)
+* [Continuação](#continuação)
 * [Purity](#purity)
 * [Side effects](#side-effects)
 * [Idempotent](#idempotent)
@@ -201,31 +201,31 @@ const floorAndToString = compose((val) => val.toString(), Math.floor) // Uso
 floorAndToString(121.212121) // '121'
 ```
 
-## Continuation
+## Continuação
 
-At any given point in a program, the part of the code that's yet to be executed is known as a continuation.
+Num dado ponto de um programa, a parte do código que ainda está por ser executada é chamada de continuação.
 
 ```js
-const printAsString = (num) => console.log(`Given ${num}`)
+const printAsString = (num) => console.log(`Recebido ${num}`)
 
 const addOneAndContinue = (num, cc) => {
   const result = num + 1
   cc(result)
 }
 
-addOneAndContinue(2, printAsString) // 'Given 3'
+addOneAndContinue(2, printAsString) // 'Recebido 3'
 ```
 
-Continuations are often seen in asynchronous programming when the program needs to wait to receive data before it can continue. The response is often passed off to the rest of the program, which is the continuation, once it's been received.
+Continuações são geralmente encontradas em programação assíncrona quando o programa precisa esperar para receber dados antes de prosseguir. A resposta é geralmente passada para o resto do programa, que é a continuação, no momemto em que é recebida.
 
 ```js
 const continueProgramWith = (data) => {
-  // Continues program with data
+  // Continua o programa com os dados
 }
 
 readFileAsync('path/to/file', (err, response) => {
   if (err) {
-    // handle error
+    // Tratar o erro
     return
   }
   continueProgramWith(response)
