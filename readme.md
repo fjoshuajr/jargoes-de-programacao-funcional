@@ -11,7 +11,7 @@ Onde aplicável, este documento usa termos definidos em [Fantasy Land spec (em i
 __Tabela de Conteúdos__
 <!-- RM(noparent,notop) -->
 * [Aridade](#aridade)
-* [Higher-Order Functions (HOF)](#higher-order-functions-hof)
+* [Funções de Ordem-Superior (FOS)](#funções-de-ordem-superior-fos)
 * [Closure](#closure)
 * [Partial Application](#partial-application)
 * [Currying](#currying)
@@ -67,17 +67,17 @@ __Tabela de Conteúdos__
 O número de argumentos que uma função leva. De palavras como unário/a, binário/a, ternário/a, etc. Estas palavras distinguem-se por serem compostas pelo sufixo, "-ário/a". A adição, por exemplo, leva dois argumentos, e por essa razão é definida com uma função binária com uma aridade de dois. Tal função pode também ser chamada de "diádica" por pessoas que preferem origens Gregas em vez de Latinas. Da mesma forma, uma função que toma um número variado de argumentos é chamada de "variádica", enquanto que uma função binária deve ser dada dois e somente dois argumentos, mesmo que se faça currying e aplicação parcial (veja abaixo).
 
 ```js
-const soma = (a, b) => a + b
+const sum = (a, b) => a + b
 
-const aridade = soma.length
+const aridade = sum.length
 console.log(aridade) // 2
 
-// A aridade de soma é 2
+// A aridade de sum é 2
 ```
 
-## Higher-Order Functions (HOF)
+## Funções de Ordem-Superior (FOS)
 
-A function which takes a function as an argument and/or returns a function.
+Uma função que leva uma função como argumento e/ou retorna uma função.
 
 ```js
 const filter = (predicate, xs) => xs.filter(predicate)
