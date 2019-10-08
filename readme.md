@@ -501,7 +501,7 @@ Lambdas são geralmente passados como argumentos para [funções de ordem superi
 ;[1, 2].map((a) => a + 1) // [2, 3]
 ```
 
-Podes atribuir o lambda à uma variável.
+Podes atribuir a lambda à uma variável.
 
 ```js
 const add1 = (a) => a + 1
@@ -513,7 +513,7 @@ Um ramo da matemática que usa funções para criar um [modelo universal de comp
 
 ## Avaliação Preguiçosa
 
-Lazy evaluation is a call-by-need evaluation mechanism that delays the evaluation of an expression until its value is needed. In functional languages, this allows for structures like infinite lists, which would not normally be available in an imperative language where the sequencing of commands is significant.
+A avaliação preguiçosa é um mecanismo de avaliação por necessidade que atrasa a avaliação de uma expressão até que seu valor seja necessário. Nas linguagens funcionais, isso permite estruturas como listas infinitas, que normalmente não estariam disponíveis em uma linguagem imperativa na qual a sequência de comandos é significativa.
 
 ```js
 const rand = function*() {
@@ -525,7 +525,7 @@ const rand = function*() {
 
 ```js
 const randIter = rand()
-randIter.next() // Each execution gives a random value, expression is evaluated on need.
+randIter.next() // Cada execução gera um valor aleatório, a expressão é avaliada conforme necessário.
 ```
 
 ## Monoid
@@ -662,11 +662,11 @@ partiallyAppliedAdds.ap(arg2) // [5, 6, 7, 8]
 
 ## Morfismo
 
-A transformation function.
+Uma função de transformação.
 
 ### Endomorfismo
 
-A function where the input type is the same as the output.
+Uma função cujo tipo de entrada é o mesmo que a saída.
 
 ```js
 // uppercase :: String -> String
