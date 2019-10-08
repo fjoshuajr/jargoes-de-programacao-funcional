@@ -15,7 +15,7 @@ __Tabela de Conteúdos__
 * [Closure](#closure)
 * [Aplicação Parcial](#aplicação-parcial)
 * [Currying](#currying)
-* [Auto Currying](#auto-currying)
+* [Auto Currying](#currying-automático)
 * [Function Composition](#function-composition)
 * [Continuation](#continuation)
 * [Purity](#purity)
@@ -118,6 +118,7 @@ Lamda Vs Closure: Um lambda é basicamente uma função que é definida em linha
 Um closure é uma função que envolve o seu estado através da referência de campos fora do seu escopo. O estado envolvido continua a existir durante invocações do closure.
 
 __Leitura adicional/Fontes__
+
 * [Lambda Vs Closure](http://stackoverflow.com/questions/220658/what-is-the-difference-between-a-closure-and-a-lambda)
 * [JavaScript Closures highly voted discussion](http://stackoverflow.com/questions/111102/how-do-javascript-closures-work)
 
@@ -170,10 +171,11 @@ add2(10) // 12
 
 ```
 
-## Auto Currying
-Transforming a function that takes multiple arguments into one that if given less than its correct number of arguments returns a function that takes the rest. When the function gets the correct number of arguments it is then evaluated.
+## Currying Automático
 
-lodash & Ramda have a `curry` function that works this way.
+Transformar uma função que leva vários argumentos para uma que, se dada menos que o número correto de argumentos, retorna uma função que leva os argumentos restantes. A função é analisada no momento em que possui o número correto de argumentos.
+
+lodash e Ramda têm a função `curry` que funciona dessa maneira.
 
 ```js
 const add = (x, y) => x + y
@@ -185,6 +187,7 @@ curriedAdd(1)(2) // 3
 ```
 
 __Further reading__
+
 * [Favoring Curry](http://fr.umio.us/favoring-curry/)
 * [Hey Underscore, You're Doing It Wrong!](https://www.youtube.com/watch?v=m3svKOdZijA)
 
@@ -316,6 +319,7 @@ const incrementAll2 = map(add(1))
 Points-free function definitions look just like normal assignments without `function` or `=>`.
 
 ## Predicate
+
 A predicate is a function that returns true or false for a given value. A common use of a predicate is as the callback for array filter.
 
 ```js
