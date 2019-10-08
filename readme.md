@@ -28,8 +28,8 @@ __Tabela de Conteúdos__
 * [Valor](#valor)
 * [Constante](#constante)
 * [Functor](#functor)
-* [Functor Apontado](#pointed-functor)
-* [Lift](#lift)
+* [Functor Apontado](#functor-apontado)
+* [Elevação](#elevação)
 * [Transparência Referencial](#transparência-referencial)
 * [Raciocínio Equacional](#raciocínio-equacional)
 * [Lambda](#lambda)
@@ -38,7 +38,7 @@ __Tabela de Conteúdos__
 * [Monoid](#monoid)
 * [Monad](#monad)
 * [Comonad](#comonad)
-* [Applicative Functor](#applicative-functor)
+* [Functor Aplicável](#functor-aplicável)
 * [Morphism](#morphism)
   * [Endomorphism](#endomorphism)
   * [Isomorphism](#isomorphism)
@@ -433,32 +433,32 @@ const g = x => x * 2
 
 ## Functor Apontado
 
-An object with an `of` function that puts _any_ single value into it.
+Um objeto com uma função `of` que coloca _qualquer_ valor único nele.
 
-ES2015 adds `Array.of` making arrays a pointed functor.
+ES2015 adiciona `Array.of` tornando arrays functores apontado.
 
 ```js
 Array.of(1) // [1]
 ```
 
-## Lift
+## Elevação
 
-Lifting is when you take a value and put it into an object like a [functor](#pointed-functor). If you lift a function into an [Applicative Functor](#applicative-functor) then you can make it work on values that are also in that functor.
+Elevação é quando se leva um valor e se coloca dentro de um objeto como um [functor](#functor-apontado). Se fizeres elevação de uma função para um [functor aplicável](#functor-aplicável) então podes fazê-lo funcionar em valores que estão também nesse functor.
 
-Some implementations have a function called `lift`, or `liftA2` to make it easier to run functions on functors.
+Algumas implementações têm uma função chamada `lift` ou `liftA2` para tornar fácil a execução de funções dentro de functors.
 
 ```js
-const liftA2 = (f) => (a, b) => a.map(f).ap(b) // note it's `ap` and not `map`.
+const liftA2 = (f) => (a, b) => a.map(f).ap(b) // note que é `ap` e não `map`.
 
 const mult = a => b => a * b
 
-const liftedMult = liftA2(mult) // this function now works on functors like array
+const liftedMult = liftA2(mult) // esta função agora funciona em functors como array
 
 liftedMult([1, 2], [3]) // [3, 6]
 liftA2(a => b => a + b)([1, 2], [3, 4]) // [4, 5, 5, 6]
 ```
 
-Lifting a one-argument function and applying it does the same thing as `map`.
+Elevar uma função de um argumento e aplicá-la faz o mesmo que `map`.
 
 ```js
 const increment = (x) => x + 1
@@ -467,28 +467,25 @@ lift(increment)([2]) // [3]
 ;[2].map(increment) // [3]
 ```
 
+## Transparência Referencial
 
-## Referential Transparency
+Uma expressão que pode ser substituída pelo seu valor sem mudar o comportamento do programa diz-se que é referencialmente transparente.
 
-An expression that can be replaced with its value without changing the
-behavior of the program is said to be referentially transparent.
-
-Say we have function greet:
+Digamos que temos a função _greet_:
 
 ```js
 const greet = () => 'Hello World!'
 ```
 
-Any invocation of `greet()` can be replaced with `Hello World!` hence greet is
-referentially transparent.
+Qualquer invocação de `greet()` pode ser substituída por `Hello World!` daí que _greet_ referencialmente transparente.
 
-##  Equational Reasoning
+## Raciocínio Equacional
 
-When an application is composed of expressions and devoid of side effects, truths about the system can be derived from the parts.
+Quando uma aplicação é composta de expressões e sem efeitos secundários, as verdades sobre o sistema podem ser derivadas das partes.
 
 ## Lambda
 
-An anonymous function that can be treated like a value.
+Uma função anônima que pode ser tratada como um valor.
 
 ```js
 ;(function (a) {
@@ -497,22 +494,24 @@ An anonymous function that can be treated like a value.
 
 ;(a) => a + 1
 ```
-Lambdas are often passed as arguments to Higher-Order functions.
+
+Lambdas são geralmente passados como argumentos para [funções de ordem superior](#funções-de-ordem-superior-fos).
 
 ```js
 ;[1, 2].map((a) => a + 1) // [2, 3]
 ```
 
-You can assign a lambda to a variable.
+Podes atribuir o lambda à uma variável.
 
 ```js
 const add1 = (a) => a + 1
 ```
 
-## Lambda Calculus
-A branch of mathematics that uses functions to create a [universal model of computation](https://en.wikipedia.org/wiki/Lambda_calculus).
+## Cálculo Lambda
 
-## Lazy evaluation
+Um ramo da matemática que usa funções para criar um [modelo universal de computação](https://pt.wikipedia.org/wiki/Cálculo_lambda).
+
+## Avaliação Preguiçosa
 
 Lazy evaluation is a call-by-need evaluation mechanism that delays the evaluation of an expression until its value is needed. In functional languages, this allows for structures like infinite lists, which would not normally be available in an imperative language where the sequencing of commands is significant.
 
@@ -538,11 +537,13 @@ One simple monoid is the addition of numbers:
 ```js
 1 + 1 // 2
 ```
+
 In this case number is the object and `+` is the function.
 
 An "identity" value must also exist that when combined with a value doesn't change it.
 
 The identity value for addition is `0`.
+
 ```js
 1 + 0 // 1
 ```
@@ -571,7 +572,9 @@ If identity and compose functions are provided, functions themselves form a mono
 const identity = (a) => a
 const compose = (f, g) => (x) => f(g(x))
 ```
+
 `foo` is any function that takes one argument.
+
 ```
 compose(foo, identity) ≍ compose(identity, foo) ≍ foo
 ```
