@@ -2,11 +2,11 @@
 
 Esta é uma tradução em Português (pt-PT) de [Functional Programming Jargon](https://github.com/hemanth/functional-programming-jargon).
 
-Functional programming (FP) provides many advantages, and its popularity has been increasing as a result. However, each programming paradigm comes with its own unique jargon and FP is no exception. By providing a glossary, we hope to make learning FP easier.
+A programação funcional (PF) tem várias vantagens, por isso a sua popularidade tem aumentado. No entanto, cada paradigma de programaçào vem com o seu próprio jargão e a PF não é exceção. Ao dar este glossário, esperamos que torne o aprendizado da PF mais fácil.
 
-Examples are presented in JavaScript (ES2015). [Why JavaScript?](https://github.com/hemanth/functional-programming-jargon/wiki/Why-JavaScript%3F)
+Os exemplos são apresentados em JavaScript (na versão ES2015). [Why JavaScript? (em inglês)](https://github.com/hemanth/functional-programming-jargon/wiki/Why-JavaScript%3F)
 
-Where applicable, this document uses terms defined in the [Fantasy Land spec](https://github.com/fantasyland/fantasy-land)
+Onde aplicável, este documento usa termos definidos em [Fantasy Land spec (em inglês)](https://github.com/fantasyland/fantasy-land)
 
 __Table of Contents__
 <!-- RM(noparent,notop) -->
