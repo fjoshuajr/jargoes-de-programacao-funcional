@@ -348,7 +348,7 @@ addOne('uma string') // Contrato violado: esperado int -> boolean
 
 Uma categoria em teoria de categorias é um conjunto de objetos e morfismos entre eles. Em programaçào, geralmente os tipos agem como objetos e funções como morfismos.
 
-Para que uma categoria seja válida, 3 regras devem ser cumpridas:
+Para que uma categoria seja válida, três regras devem ser cumpridas:
 
 1. Deve existir um morfismo identidade que mapeia um objeto para si próprio.
 
@@ -399,28 +399,29 @@ john.age + five === ({name: 'John', age: 30}).age + (5)
 
 ## Functor
 
-An object that implements a `map` function which, while running over each value in the object to produce a new object, adheres to two rules:
+Um objeto que implementa a função `map` que, ao passar por cada valor dentro do objeto para produzir um novo objeto, adere à duas regras:
 
-__Preserves identity__
+__Preserva a identidade__
+
 ```
 object.map(x => x) ≍ object
 ```
 
-__Composable__
+__Pode ser composta__
 
 ```
 object.map(compose(f, g)) ≍ object.map(g).map(f)
 ```
 
-(`f`, `g` are arbitrary functions)
+(`f`, `g` são funções arbitrárias)
 
-A common functor in JavaScript is `Array` since it abides to the two functor rules:
+Um functor comum em JavaScript é o `Array` já que obedece as duas regras de um functor:
 
 ```js
 ;[1, 2, 3].map(x => x) // = [1, 2, 3]
 ```
 
-and
+e
 
 ```js
 const f = x => x + 1
@@ -430,7 +431,8 @@ const g = x => x * 2
 ;[1, 2, 3].map(g).map(f)     // = [3, 5, 7]
 ```
 
-## Pointed Functor
+## Functor Apontado
+
 An object with an `of` function that puts _any_ single value into it.
 
 ES2015 adds `Array.of` making arrays a pointed functor.
