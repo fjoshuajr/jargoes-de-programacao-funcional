@@ -18,7 +18,7 @@ __Tabela de Conteúdos__
 * [Currying Automático](#currying-automático)
 * [Composição de Funções](#composição-de-funções)
 * [Continuação](#continuação)
-* [Purity](#purity)
+* [Puridade](#puridade)
 * [Side effects](#side-effects)
 * [Idempotent](#idempotent)
 * [Point-Free Style](#point-free-style)
@@ -186,7 +186,7 @@ curriedAdd(1) // (y) => 1 + y
 curriedAdd(1)(2) // 3
 ```
 
-__Further reading__
+__Leitura adicional__
 
 * [Favoring Curry](http://fr.umio.us/favoring-curry/)
 * [Hey Underscore, You're Doing It Wrong!](https://www.youtube.com/watch?v=m3svKOdZijA)
@@ -232,41 +232,40 @@ readFileAsync('path/to/file', (err, response) => {
 })
 ```
 
-## Purity
+## Puridade
 
-A function is pure if the return value is only determined by its
-input values, and does not produce side effects.
+Uma função é pura se o valor de retorno é determinado apenas pelos seus valores de entrada e não efeitos secundários.
 
 ```js
-const greet = (name) => `Hi, ${name}`
+const greet = (name) => `Olá, ${name}`
 
-greet('Brianne') // 'Hi, Brianne'
+greet('Brianne') // 'Olá, Brianne'
 ```
 
-As opposed to each of the following:
+Ao contrário dos seguintes exemplos:
 
 ```js
 window.name = 'Brianne'
 
-const greet = () => `Hi, ${window.name}`
+const greet = () => `Olá, ${window.name}`
 
-greet() // "Hi, Brianne"
+greet() // "Olá, Brianne"
 ```
 
-The above example's output is based on data stored outside of the function...
+A saída do exemplo acima é baseada em dados guardados fora da função...
 
 ```js
 let greeting
 
 const greet = (name) => {
-  greeting = `Hi, ${name}`
+  greeting = `Olá, ${name}`
 }
 
 greet('Brianne')
-greeting // "Hi, Brianne"
+greeting // "Olá, Brianne"
 ```
 
-... and this one modifies state outside of the function.
+... e este modifica o estado fora da função.
 
 ## Side effects
 
