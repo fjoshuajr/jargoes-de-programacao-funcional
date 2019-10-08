@@ -2,15 +2,15 @@
 
 Esta é uma tradução em Português (pt-PT) de [Functional Programming Jargon](https://github.com/hemanth/functional-programming-jargon).
 
-A programação funcional (PF) tem várias vantagens, por isso a sua popularidade tem aumentado. No entanto, cada paradigma de programaçào vem com o seu próprio jargão e a PF não é exceção. Ao dar este glossário, esperamos que torne o aprendizado da PF mais fácil.
+A programação funcional (PF) tem várias vantagens, por isso a sua popularidade tem aumentado. No entanto, cada paradigma de programação vem com o seu próprio jargão e a PF não é exceção. Ao dar este glossário, esperamos que torne o aprendizado da PF mais fácil.
 
-Os exemplos são apresentados em JavaScript (na versão ES2015). [Why JavaScript? (em inglês)](https://github.com/hemanth/functional-programming-jargon/wiki/Why-JavaScript%3F)
+Os exemplos são apresentados em JavaScript (versão ES2015). [Why JavaScript? (em inglês)](https://github.com/hemanth/functional-programming-jargon/wiki/Why-JavaScript%3F)
 
 Onde aplicável, este documento usa termos definidos em [Fantasy Land spec (em inglês)](https://github.com/fantasyland/fantasy-land)
 
-__Table of Contents__
+__Tabela de Conteúdos__
 <!-- RM(noparent,notop) -->
-* [Arity](#arity)
+* [Aridade](#aridade)
 * [Higher-Order Functions (HOF)](#higher-order-functions-hof)
 * [Closure](#closure)
 * [Partial Application](#partial-application)
@@ -62,17 +62,17 @@ __Table of Contents__
 * [Functional Programming Libraries in JavaScript](#functional-programming-libraries-in-javascript)
 <!-- /RM -->
 
-## Arity
+## Aridade
 
-The number of arguments a function takes. From words like unary, binary, ternary, etc. This word has the distinction of being composed of two suffixes, "-ary" and "-ity." Addition, for example, takes two arguments, and so it is defined as a binary function or a function with an arity of two. Such a function may sometimes be called "dyadic" by people who prefer Greek roots to Latin. Likewise, a function that takes a variable number of arguments is called "variadic," whereas a binary function must be given two and only two arguments, currying and partial application notwithstanding (see below).
+O número de argumentos que uma função leva. De palavras como unário/a, binário/a, ternário/a, etc. Estas palavras distinguem-se por serem compostas pelo sufixo, "-ário/a". A adição, por exemplo, leva dois argumentos, e por esta razão é definida com uma função binária com uma aridade de dois. Tal função pode também ser chamada de "diádica" por pessoas que preferem origens Gregas em vez de Latinas. Da mesma forma, uma função que toma um número variado de argumentos é chamada de "variádica", enquanto que uma função binária deve ser dada dois e somente dois argumentos, mesmo que se faça currying e aplicação parcial (veja abaixo).
 
 ```js
-const sum = (a, b) => a + b
+const soma = (a, b) => a + b
 
-const arity = sum.length
-console.log(arity) // 2
+const aridade = soma.length
+console.log(aridade) // 2
 
-// The arity of sum is 2
+// A aridade de soma é 2
 ```
 
 ## Higher-Order Functions (HOF)
