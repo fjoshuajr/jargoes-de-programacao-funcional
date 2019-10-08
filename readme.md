@@ -20,7 +20,7 @@ __Tabela de Conteúdos__
 * [Continuação](#continuação)
 * [Puridade](#puridade)
 * [Efeitos Secundários](#efeitos-secundários)
-* [Idempotent](#idempotent)
+* [Idempotência](#idempotência)
 * [Point-Free Style](#point-free-style)
 * [Predicate](#predicate)
 * [Contracts](#contracts)
@@ -279,9 +279,9 @@ const differentEveryTime = new Date()
 console.log('IO é um efeito secundário!')
 ```
 
-## Idempotent
+## Idempotência
 
-A function is idempotent if reapplying it to its result does not produce a different result.
+Uma função é idempotente se ao reaplicá-la com o seu resultado não produz um resultado diferente.
 
 ```
 f(f(x)) ≍ f(x)
