@@ -15,7 +15,7 @@ __Tabela de Conteúdos__
 * [Closure](#closure)
 * [Aplicação Parcial](#aplicação-parcial)
 * [Currying](#currying)
-* [Auto Currying](#currying-automático)
+* [Currying Automático](#currying-automático)
 * [Function Composition](#function-composition)
 * [Continuation](#continuation)
 * [Purity](#purity)
