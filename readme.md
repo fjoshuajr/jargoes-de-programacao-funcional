@@ -102,7 +102,7 @@ Um closure é um escopo que captura variáveis locais de uma função para que p
 ```js
 const addTo = x => y => x + y;
 var addToFive = addTo(5);
-addToFive(3); //retorna 8
+addToFive(3); // retorna 8
 ```
 
 A função ```addTo()``` retorna uma função (internamente chamada ```add()```), vamos guardá-la numa variável chamada ```addToFive``` com uma invocação com currying com argumento _5_.
@@ -153,16 +153,16 @@ A aplicação parcial ajuda-nos a criar funções mais simples a partir de funç
 
 ## Currying
 
-The process of converting a function that takes multiple arguments into a function that takes them one at a time.
+O processo de converter uma função que leva vários argumentos para uma função que leva um argumento de cada vez.
 
-Each time the function is called it only accepts one argument and returns a function that takes one argument until all arguments are passed.
+Cada vez que a função é invocada, ela apenas aceita um argumento e retorna uma função que leva um argumento até que todos argumentos sejam passados.
 
 ```js
 const sum = (a, b) => a + b
 
 const curriedSum = (a) => (b) => a + b
 
-curriedSum(40)(2) // 42.
+curriedSum(40)(2) // 42
 
 const add2 = curriedSum(2) // (b) => 2 + b
 
